@@ -482,5 +482,7 @@ xmlsec==1.3.12
 yarl==1.6.3
     # via aiohttp
 
+datadog==0.42.0
+
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
