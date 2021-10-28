@@ -1598,7 +1598,7 @@ def cache_s3_buckets_for_account(account_id: str) -> Dict[str, Union[str, int]]:
     }
     log.debug(log_data)
     stats.count(
-        "cache_s3_buckets_for_account",
+        "cache_s3_buckets_for_account", value=len(buckets),
         tags={"account_id": account_id, "number_s3_buckets": len(buckets)},
     )
 
@@ -2138,7 +2138,7 @@ schedule = {
     "cache_iam_resources_across_accounts": {
         "task": "consoleme.celery_tasks.celery_tasks.cache_iam_resources_across_accounts",
         "options": {"expires": 1000},
-        "schedule": schedule_45_minute,
+        "schedule": schedule_5_minutes,
     },
     "clear_old_redis_iam_cache": {
         "task": "consoleme.celery_tasks.celery_tasks.clear_old_redis_iam_cache",
@@ -2158,7 +2158,7 @@ schedule = {
     "cache_managed_policies_across_accounts": {
         "task": "consoleme.celery_tasks.celery_tasks.cache_managed_policies_across_accounts",
         "options": {"expires": 1000},
-        "schedule": schedule_45_minute,
+        "schedule": schedule_5_minutes,
     },
     "cache_s3_buckets_across_accounts": {
         "task": "consoleme.celery_tasks.celery_tasks.cache_s3_buckets_across_accounts",

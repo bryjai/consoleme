@@ -59,10 +59,10 @@ class CloudWatchMetric(Metric):
             dimensions.append({"Name": str(name), "Value": str(value)})
         return dimensions
 
-    def count(self, metric_name, tags=None):
+    def count(self, metric_name, metric_value=1, tags=None):
         dimensions = self.generate_dimensions(tags)
 
-        self.send_cloudwatch_metric(metric_name, dimensions, "Count", 1)
+        self.send_cloudwatch_metric(metric_name, dimensions, "Count", metric_value)
 
     def gauge(self, metric_name, metric_value, tags=None):
         dimensions = self.generate_dimensions(tags)
