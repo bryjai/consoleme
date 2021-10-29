@@ -63,7 +63,7 @@ class DatadogMetric(Metric):
         else:
             return self.prefix + "." + metric_name
 
-    def count(self, metric_name, tags=None):
+    def count(self, metric_name, metric_value=1, tags=None):
         kwargs = self.statsd_args(metric_name, tags)
 
         # The count method is not supported in Dogstatsd for Python
