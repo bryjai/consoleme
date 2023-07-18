@@ -287,7 +287,7 @@ gitdb==4.0.9
     #   -c requirements.txt
     #   -r requirements.txt
     #   gitpython
-gitpython==3.1.27
+gitpython==3.1.32
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -401,7 +401,7 @@ jmespath==1.0.1
     #   boto3
     #   botocore
     #   parliament
-joblib==1.1.0
+joblib==1.2.0
     # via
     #   -c requirements.txt
     #   -r requirements.txt
@@ -681,7 +681,7 @@ pytest-forked==1.4.0
     # via pytest-xdist
 pytest-html==3.1.1
     # via -r requirements-test.in
-pytest-metadata==2.0.1
+pytest-metadata==2.0.4
     # via pytest-html
 pytest-mock==3.8.2
     # via -r requirements-test.in

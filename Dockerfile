@@ -8,9 +8,10 @@ ENV NODE_OPTIONS="--max-old-space-size=20000"
 ENV SETUPTOOLS_USE_DISTUTILS=stdlib
 
 # Install OS dependencies
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash
 RUN apt clean
 RUN apt update
+RUN apt upgrade -y
 RUN apt install -y \
     build-essential \
     libxml2-dev \
@@ -20,14 +21,18 @@ RUN apt install -y \
     libcurl4-nss-dev \
     python3-dev \
     nodejs
+# Removing openssh-client due to a critical vulnerability https://avd.aquasec.com/nvd/cve-2023-28531
+RUN apt remove openssh-client -y
 RUN npm install yarn -g
 # Install watchdog. Used to automatically restart ConsoleMe in Docker, for development.
 RUN pip install watchdog argh
 
 # Run ConsoleMe tornado server using configuration
-COPY . /apps/consoleme
+COPY requirements* .
 RUN pip install -U setuptools pip
 RUN pip install --no-cache-dir -r requirements.txt -r requirements-test.txt
+
+COPY . /apps/consoleme
 RUN pip install -e .
 
 # Install SPA frontend

@@ -135,7 +135,7 @@ genson==1.2.2
     # via datamodel-code-generator
 gitdb==4.0.9
     # via gitpython
-gitpython==3.1.27
+gitpython==3.1.32
     # via -r requirements.in
 google-api-core==2.8.2
     # via
@@ -200,7 +200,7 @@ jmespath==1.0.1
     #   boto3
     #   botocore
     #   parliament
-joblib==1.1.0
+joblib==1.2.0
     # via cloudaux
 json-cfg==0.4.2
     # via parliament
