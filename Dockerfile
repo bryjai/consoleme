@@ -8,7 +8,7 @@ ENV NODE_OPTIONS="--max-old-space-size=20000"
 ENV SETUPTOOLS_USE_DISTUTILS=stdlib
 
 # Install OS dependencies
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
 RUN apt clean
 RUN apt update
 RUN apt upgrade -y
@@ -20,7 +20,8 @@ RUN apt install -y \
     musl-dev \
     libcurl4-nss-dev \
     python3-dev \
-    nodejs
+    nodejs \
+    npm
 # Removing openssh-client due to a critical vulnerability https://avd.aquasec.com/nvd/cve-2023-28531
 RUN apt remove openssh-client -y
 RUN npm install yarn -g
